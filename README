@@ -1,0 +1,3 @@
+Make sure you link vimrc (don't overwrite your existing one):
+
+$ ln -s ./vimrc ~/.vimrc

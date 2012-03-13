@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/jamil/Work/reports/9_6'
+let g:netrw_dirhist_2='/Users/jamil/Developer/personal_site_rails'
+let g:netrw_dirhist_3='/Users/jamil/Developer/freelance/sv.iabc.com/site'

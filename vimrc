@@ -24,6 +24,7 @@ autocmd FileType html set formatoptions+=t1
 set ignorecase
 set smartcase
 set incsearch
+au BufRead,BufNewFile *.hamlc set ft=haml
 
 " used to map Space bar as fold key
 set foldmethod=syntax
@@ -32,10 +33,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
 " shows TODOs in project
-map <F4> :grep TODO -r app/ test/ config/ db/ lib/
-
-" similar to cmd-T in textmate (uses fuzzyfinder plugin)
-map <F5> :FufFile **/<CR>
+map <F4> :grep TODO -r app/ test/ config/ db/ lib/<CR>
 
 " NERDTree shortcut
 map <F6> :NERDTreeToggle<CR>

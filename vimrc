@@ -44,8 +44,14 @@ map <C-N> :NERDTreeToggle<CR>
 " FuzzyFinder recursive shortcut
 map <C-H> :FufFile **/<CR>
 
+" move between window splits more easily
+nmap <silent> <Left> :wincmd h<CR>
+nmap <silent> <Right> :wincmd l<CR>
+nmap <silent> <Up> :wincmd k<CR>
+nmap <silent> <Down> :wincmd j<CR>
+
 " load different shell
-set shell=zsh\ -i
+set shell=zsh
 
 " Files over 1 MB are considered large files
 let g:LargeFile=1

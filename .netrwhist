@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/jamil/Developer/lookbook'
 let g:netrw_dirhist_2='/Users/jamil/Developer/carehr'
+let g:netrw_dirhist_3='/Users/jamil/.rvm/gems/ruby-1.9.3-p194@rails3/gems/capistrano-2.13.4'
+let g:netrw_dirhist_4='/Users/jamil/.rvm/gems/ruby-1.9.3-p194@coupa/gems/capistrano-2.13.4'
+let g:netrw_dirhist_5='/Users/jamil/.rvm/gems/ruby-1.9.3-p194@carehr/gems/rails-3.2.8'
+let g:netrw_dirhist_6='/Users/jamil/.rvm/gems/ruby-1.9.3-p194@carehr/gems/railties-3.2.8'

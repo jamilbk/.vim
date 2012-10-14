@@ -44,6 +44,10 @@ map <C-N> :NERDTreeToggle<CR>
 " FuzzyFinder recursive shortcut
 map <C-H> :FufFile **/<CR>
 
+" FuzzyFinder ignores
+let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
+let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr)|tmp|log|public\/assets\/[^manifest\.yml])($|[/\\])'
+
 " move between window splits more easily
 nmap <silent> <Left> :wincmd h<CR>
 nmap <silent> <Right> :wincmd l<CR>

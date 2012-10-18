@@ -46,30 +46,6 @@ map <F4> :grep TODO -r app/ test/ config/ db/ lib/<CR>
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
 
-" DMenu is much faster than fuzzy finder
-" Strip the newline from the end of a string
-function! Chomp(str)
-  return substitute(a:str, '\n$', '', '')
-endfunction
-
-" Find a file and pass it to cmd
-function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
-endfunction
-
-map <C-H> :call DmenuOpen("e")<CR>
-
-" FuzzyFinder recursive shortcut
-" map <C-H> :FufFile **/<CR>
-
-" FuzzyFinder ignores
-" let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|(^|[/\\])(solr|tmp|log|public)($|[/\\])'
-" let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr)|solr|tmp|log|public)])($|[/\\])'
-
 " move between window splits more easily
 nmap <silent> <Left> :wincmd h<CR>
 nmap <silent> <Right> :wincmd l<CR>

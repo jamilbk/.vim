@@ -24,8 +24,13 @@ autocmd FileType html set formatoptions+=t1
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
+
+" Visual Bell instead of Audio Bell
+set vb
+
+" Tidy XML when opened
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " used to map Space bar as fold key
 set foldmethod=syntax
@@ -41,12 +46,29 @@ map <F4> :grep TODO -r app/ test/ config/ db/ lib/<CR>
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
 
+" DMenu is much faster than fuzzy finder
+" Strip the newline from the end of a string
+function! Chomp(str)
+  return substitute(a:str, '\n$', '', '')
+endfunction
+
+" Find a file and pass it to cmd
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
+
+map <C-H> :call DmenuOpen("e")<CR>
+
 " FuzzyFinder recursive shortcut
-map <C-H> :FufFile **/<CR>
+" map <C-H> :FufFile **/<CR>
 
 " FuzzyFinder ignores
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
-let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr)|tmp|log|public\/assets\/[^manifest\.yml])($|[/\\])'
+" let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|(^|[/\\])(solr|tmp|log|public)($|[/\\])'
+" let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr)|solr|tmp|log|public)])($|[/\\])'
 
 " move between window splits more easily
 nmap <silent> <Left> :wincmd h<CR>

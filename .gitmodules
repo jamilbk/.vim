@@ -79,3 +79,9 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/jade"]
+	path = bundle/jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "bundle/jst"]
+	path = bundle/jst
+	url = https://github.com/briancollins/vim-jst.git

@@ -85,3 +85,6 @@
 [submodule "bundle/jst"]
 	path = bundle/jst
 	url = https://github.com/briancollins/vim-jst.git
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = https://github.com/juvenn/mustache.vim.git

@@ -56,8 +56,8 @@ nmap <silent> <Down> :wincmd j<CR>
 set shell=zsh
 
 " ignores
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|public|log|solr)$'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|public|log|solr|buildAssets|node_modules)$'
 
 " Files over 1 MB are considered large files
 let g:LargeFile=1

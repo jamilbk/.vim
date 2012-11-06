@@ -25,6 +25,8 @@ set ignorecase
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile Capfile set ft=ruby
+au BufRead,BufNewFile Rakefile set ft=ruby
 
 " Visual Bell instead of Audio Bell
 set vb
@@ -197,8 +199,9 @@ set lazyredraw
 " " Enable syntax highlighting
 " syntax enable
 
-colorscheme busybee
-set background=dark
+" colorscheme busybee
+set background=light
+colorscheme mayansmoke
 
 " " Set extra options when running in GUI mode
 " if has("gui_running")

@@ -48,11 +48,28 @@ map <F4> :grep TODO -r app/ test/ config/ db/ lib/<CR>
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
 
-" move between window splits more easily
-nmap <silent> <Left> :wincmd h<CR>
-nmap <silent> <Right> :wincmd l<CR>
-nmap <silent> <Up> :wincmd k<CR>
-nmap <silent> <Down> :wincmd j<CR>
+" Swap windows more easily
+function! MarkWindowSwap()
+    let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+    "Mark destination
+    let curNum = winnr()
+    let curBuf = bufnr( "%" )
+    exe g:markedWinNum . "wincmd w"
+    "Switch to source and shuffle dest->source
+    let markedBuf = bufnr( "%" )
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curBuf
+    "Switch to dest and shuffle source->dest
+    exe curNum . "wincmd w"
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedBuf 
+endfunction
+
+nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
+nmap <silent> <C-w>m :call DoWindowSwap()<CR>
 
 " load different shell
 set shell=/usr/local/bin/zsh
@@ -318,7 +335,7 @@ set viminfo^=%
 set laststatus=2
 
 " " Format the status line
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=%{winnr()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

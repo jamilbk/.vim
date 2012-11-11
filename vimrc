@@ -55,7 +55,7 @@ nmap <silent> <Up> :wincmd k<CR>
 nmap <silent> <Down> :wincmd j<CR>
 
 " load different shell
-set shell=zsh
+set shell=/usr/local/bin/zsh
 
 " ignores
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*
@@ -199,9 +199,9 @@ set lazyredraw
 " " Enable syntax highlighting
 " syntax enable
 
-" colorscheme busybee
-set background=light
-colorscheme mayansmoke
+colorscheme busybee
+set background=dark
+" colorscheme mayansmoke
 
 " " Set extra options when running in GUI mode
 " if has("gui_running")

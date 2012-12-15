@@ -4,6 +4,7 @@ call pathogen#infect()
 set tabpagemax=50
 set sidescroll=1
 set sidescrolloff=10
+set scrolloff=10
 set backspace=indent,eol,start " fixes issue with compiled 7.3 not backspacing properly
 set nocompatible
 set number
@@ -17,6 +18,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set tabstop=2
+set textwidth=80 " Hard-wrap column
 filetype on
 filetype plugin indent on
 syntax enable
@@ -35,10 +37,10 @@ set vb
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " used to map Space bar as fold key
-set foldmethod=syntax
-set foldlevel=99 " files open with no folds
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
-vnoremap <Space> zf
+" set foldmethod=syntax
+" set foldlevel=99 " files open with no folds
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
+" vnoremap <Space> zf
 
 set clipboard+=unnamed
 
@@ -70,6 +72,12 @@ endfunction
 
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>m :call DoWindowSwap()<CR>
+
+" Syntastic Syntax Options
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
+                            \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
 set shell=/usr/local/bin/zsh
@@ -216,9 +224,9 @@ set lazyredraw
 " " Enable syntax highlighting
 " syntax enable
 
-colorscheme busybee
+" colorscheme busybee
 set background=dark
-" colorscheme mayansmoke
+colorscheme busybee
 
 " " Set extra options when running in GUI mode
 " if has("gui_running")

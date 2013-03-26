@@ -18,7 +18,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set tabstop=2
-set textwidth=80 " Hard-wrap column
+" set textwidth=80 " Hard-wrap column
 filetype on
 filetype plugin indent on
 syntax enable
@@ -29,6 +29,10 @@ set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
 au BufRead,BufNewFile Rakefile set ft=ruby
+
+
+" For easy select of recently pasted text
+nnoremap gp `[v`]
 
 " Visual Bell instead of Audio Bell
 set vb
@@ -85,12 +89,13 @@ set shell=/usr/local/bin/zsh
 " ignores
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|public|log|solr|buildAssets|node_modules)$'
+let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
 let g:LargeFile=1
 
-" Disable syntax on files over 500 lines
-au BufRead,BufNewFile * if line("$") > 500|set syntax=|endif
+" Disable syntax on files over 5000 lines
+au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
 
 " used to save viewstate, but conflicts with rails.vim
@@ -225,8 +230,8 @@ set lazyredraw
 " syntax enable
 
 " colorscheme busybee
-set background=dark
-colorscheme busybee
+set background=light
+colorscheme pyte
 
 " " Set extra options when running in GUI mode
 " if has("gui_running")
@@ -493,3 +498,11 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" column highlighting
+highlight OverLength ctermbg=white ctermfg=red guibg=white 
+match OverLength /\%81v.\+/
+autocmd BufWritePost * match OverLength /\%81v.\+/
+autocmd BufWinEnter * match OverLength /\%81v.\+/
+
+

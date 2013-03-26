@@ -97,3 +97,12 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/you-complete-me"]
+	path = bundle/you-complete-me
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/gitgutter"]
+	path = bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/vim-todo"]
+	path = bundle/vim-todo
+	url = https://github.com/mivok/vimtodo.git

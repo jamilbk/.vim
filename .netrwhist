@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/jamil/.rvm/gems/ruby-1.9.3-p327@carehr/gems/jquery-rails-2.1.3'
-let g:netrw_dirhist_2='/Users/jamil/.rvm/gems/ruby-1.9.3-p327@carehr/gems/devise-2.1.2'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/jamil/.rvm/gems/ruby-2.0.0-p0@mtd/gems/activerecord-4.0.0.beta1'
+let g:netrw_dirhist_2='/Users/jamil/.splunk'
+let g:netrw_dirhist_3='/Users/jamil/.rvm/gems/ruby-2.0.0-p0@mtd/gems/activerecord-4.0.0.beta1'
+let g:netrw_dirhist_4='/Users/jamil/.rvm/gems/ruby-2.0.0-p0@tmp/bundler/gems/devise-d29b744d92a3'
+let g:netrw_dirhist_5='/Users/jamil/.rvm/gems/ruby-2.0.0-p0@mtd/gems/warden-1.2.1'

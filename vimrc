@@ -29,6 +29,7 @@ set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
 au BufRead,BufNewFile Rakefile set ft=ruby
+au BufRead,BufNewFile Guardfile set ft=ruby
 
 
 " For easy select of recently pasted text
@@ -87,7 +88,7 @@ map <C-S> :SyntasticToggleMode<CR>
 set shell=/usr/local/bin/zsh
 
 " ignores
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*,*/coverage/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|public|log|solr|buildAssets|node_modules)$'
 let NERDTreeIgnore=['node_modules']
 

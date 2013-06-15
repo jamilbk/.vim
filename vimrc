@@ -88,8 +88,8 @@ map <C-S> :SyntasticToggleMode<CR>
 set shell=/usr/local/bin/zsh
 
 " ignores
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|public|log|solr|buildAssets|node_modules)$'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,/public/js/vendor/,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|solr|public\/js\/vendor|components|builtAssets|node_modules)$'
 let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
@@ -230,9 +230,10 @@ set lazyredraw
 " " Enable syntax highlighting
 " syntax enable
 
-" colorscheme busybee
-set background=light
-colorscheme pyte
+colorscheme busybee
+set background=dark
+" set background=light
+" colorscheme pyte
 
 " " Set extra options when running in GUI mode
 " if has("gui_running")
@@ -501,7 +502,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " column highlighting
-highlight OverLength ctermbg=white ctermfg=red guibg=white 
+highlight OverLength ctermbg=59 ctermfg=red guibg=#404040
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

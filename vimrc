@@ -34,7 +34,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 
 " For easy select of recently pasted text
 nnoremap gp `[v`]
-
+nmap <C-T> :TagbarToggle<CR>
 " Visual Bell instead of Audio Bell
 set vb
 
@@ -502,7 +502,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " column highlighting
-highlight OverLength ctermbg=59 ctermfg=red guibg=#404040
+highlight OverLength ctermbg=59 ctermfg=grey guibg=#a0a0a0
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

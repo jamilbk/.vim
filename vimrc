@@ -47,10 +47,8 @@ set foldlevel=99 " files open with no folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
+" copy yanks to clipboard
 set clipboard+=unnamed
-
-" shows TODOs in project
-map <F4> :grep (TODO|FIXME|BUG -r app/ test/ config/ db/ lib/<CR>
 
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>

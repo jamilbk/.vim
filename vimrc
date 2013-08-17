@@ -23,7 +23,6 @@ filetype on
 filetype plugin indent on
 syntax enable
 autocmd FileType html set formatoptions+=t1
-autocmd FileType html filetype plugin indent off
 set ignorecase
 set smartcase
 set incsearch

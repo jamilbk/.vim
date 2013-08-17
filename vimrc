@@ -23,6 +23,7 @@ filetype on
 filetype plugin indent on
 syntax enable
 autocmd FileType html set formatoptions+=t1
+autocmd FileType html filetype plugin indent off
 set ignorecase
 set smartcase
 set incsearch
@@ -77,9 +78,9 @@ nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>m :call DoWindowSwap()<CR>
 
 " Syntastic Syntax Options
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-                            \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+let g:syntastic_mode_map = { 'mode': 'passive' }
+                            " \ 'active_filetypes': ['ruby', 'php', 'javascript'],
+                            " \ 'passive_filetypes': ['html', 'haml', 'erb'] }
 map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell

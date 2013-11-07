@@ -30,6 +30,7 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
+au BufRead,BufNewFile Makefile set noexpandtab
 
 
 " For easy select of recently pasted text
@@ -39,7 +40,7 @@ nmap <C-T> :TagbarToggle<CR>
 set vb
 
 " Tidy XML when opened
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " used to map Space bar as fold key
 set foldmethod=syntax
@@ -77,16 +78,16 @@ nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>m :call DoWindowSwap()<CR>
 
 " Syntastic Syntax Options
-let g:syntastic_mode_map = { 'mode': 'passive' }
-                            " \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-                            " \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
+                            \ 'passive_filetypes': ['html', 'haml', 'erb'] }
 map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
 set shell=/usr/local/bin/zsh
 
 " ignores
-set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/public/js/vendor/,/components/*,*/builtAssets/*,*/coverage/*
+set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|solr|public\/js\/vendor|components|builtAssets|node_modules)$'
 let NERDTreeIgnore=['node_modules']
 
@@ -222,5 +223,3 @@ highlight OverLength ctermbg=59 ctermfg=grey guibg=#a0a0a0
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/
-
-

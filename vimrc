@@ -23,7 +23,6 @@ filetype on
 filetype plugin indent on
 syntax enable
 autocmd FileType html set formatoptions+=t1
-set ignorecase
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -40,7 +39,7 @@ nmap <C-T> :TagbarToggle<CR>
 set vb
 
 " Tidy XML when opened
-" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " used to map Space bar as fold key
 set foldmethod=syntax
@@ -102,12 +101,12 @@ set lazyredraw
 
 
 " dark colorscheme
-colorscheme busybee
-set background=dark
+" colorscheme busybee
+" set background=dark
 
 " light colorscheme
-" set background=light
-" colorscheme pyte
+set background=light
+colorscheme pyte
 
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...

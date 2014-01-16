@@ -109,3 +109,6 @@
 [submodule "bundle/underscore-templates"]
 	path = bundle/underscore-templates
 	url = https://github.com/aaronj1335/underscore-templates.vim.git
+[submodule "bundle/treetop.vim"]
+	path = bundle/treetop.vim
+	url = git://github.com/nanki/treetop.vim.git

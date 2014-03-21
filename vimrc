@@ -86,8 +86,8 @@ map <C-S> :SyntasticToggleMode<CR>
 set shell=/usr/local/bin/zsh
 
 " ignores
-set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|solr|public\/js\/vendor|components|builtAssets|node_modules)$'
+set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|solr|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
 let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
@@ -217,7 +217,7 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-" column highlighting
+" gutter highlighting
 highlight OverLength ctermbg=59 ctermfg=grey guibg=#a0a0a0
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/

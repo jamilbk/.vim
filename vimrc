@@ -100,13 +100,14 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 
-" dark colorscheme
+" dark colorschemes
 " colorscheme busybee
-" set background=dark
+colorscheme distinguished
+set background=dark
 
-" light colorscheme
-set background=light
-colorscheme pyte
+" light colorschemes
+" set background=light
+" colorscheme pyte
 
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...

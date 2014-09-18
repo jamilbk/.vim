@@ -30,6 +30,7 @@ au BufRead,BufNewFile Capfile set ft=ruby
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
+au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 
 " For easy select of recently pasted text
@@ -40,6 +41,10 @@ set vb
 
 " Tidy XML when opened
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
+" Tidy HTML / XML on demand
+command Thtml :%!tidy -q -i --show-errors 0
+command Txml  :%!tidy -q -i --show-errors 0 -xml
 
 " used to map Space bar as fold key
 set foldmethod=syntax
@@ -93,22 +98,14 @@ let NERDTreeIgnore=['node_modules']
 " Files over 1 MB are considered large files
 let g:LargeFile=1
 
-" Disable syntax on files over 5000 lines
+" Disable syntax on files over 10000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
-
-" dark colorschemes
-" colorscheme busybee
-colorscheme distinguished
-set background=dark
-
-" light colorschemes
-" set background=light
-" colorscheme pyte
-
+" Import chosen colorschemes
+source /Users/jamil/.vim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile
@@ -219,7 +216,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=59 ctermfg=grey guibg=#a0a0a0
+highlight OverLength ctermbg=57 ctermfg=229 guibg=#a0a0a0
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

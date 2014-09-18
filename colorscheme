@@ -1,0 +1,8 @@
+" dark colorschemes
+" colorscheme busybee
+colorscheme distinguished
+set background=dark
+
+" light colorschemes
+" set background=light
+" colorscheme pyte

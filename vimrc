@@ -88,11 +88,11 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
-set shell=/usr/local/bin/zsh
+set shell=/usr/bin/zsh
 
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|solr|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
 let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
@@ -105,7 +105,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-source /Users/jamil/.vim/colorscheme
+source /home/jamil/.vim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

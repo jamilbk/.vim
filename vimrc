@@ -23,6 +23,8 @@ filetype on
 filetype plugin indent on
 syntax enable
 autocmd FileType html set formatoptions+=t1
+autocmd FileType markdown set tw=79
+autocmd FileType markdown setlocal spell spelllang=en_us
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -31,6 +33,8 @@ au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
+" au BufRead,BufNewFile (*.markdown,*.md) set tw=79
+" au BufRead,BufNewFile (*.markdown,*.md) 
 
 
 " For easy select of recently pasted text
@@ -88,7 +92,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
-set shell=/usr/local/bin/zsh
+set shell=/bin/zsh
 
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
@@ -216,7 +220,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=57 ctermfg=229 guibg=#a0a0a0
+highlight OverLength ctermbg=57 ctermfg=229 guibg=#000050
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

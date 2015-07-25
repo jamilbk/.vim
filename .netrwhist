@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/jamil/Downloads/413-fast-tests'
-let g:netrw_dirhist_2='/Users/jamil/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/mongoidblog'
-let g:netrw_dirhist_3='/Users/jamil/Developer/mtd/.git'
-let g:netrw_dirhist_4='/Users/jamil/.rvm/gems/ruby-2.0.0-p247@mtd/gems/rt-client-0.6.0'
-let g:netrw_dirhist_5='/Users/jamil/Downloads/sdee-collector'

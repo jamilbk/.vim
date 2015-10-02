@@ -83,7 +83,7 @@ function! DoWindowSwap()
 endfunction
 
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
-nmap <silent> <C-w>m :call DoWindowSwap()<CR>
+nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
 " Syntastic Syntax Options
 let g:syntastic_mode_map = { 'mode': 'passive',
@@ -97,7 +97,8 @@ set shell=/bin/zsh
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
-let NERDTreeIgnore=['node_modules']
+" uncomment to hide the directories from NERDTree
+" let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
 let g:LargeFile=1

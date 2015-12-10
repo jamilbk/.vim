@@ -110,7 +110,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-source /Users/jamil/.vim/colorscheme
+source /home/jamil/.vim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

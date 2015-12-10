@@ -96,7 +96,7 @@ set shell=/bin/zsh
 
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
 " let NERDTreeIgnore=['node_modules']
 

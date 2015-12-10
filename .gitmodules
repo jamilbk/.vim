@@ -7,9 +7,6 @@
 [submodule "bundle/large_file"]
 	path = bundle/large_file
 	url = https://github.com/vim-scripts/LargeFile.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/vim_addon_mw_utils"]
 	path = bundle/vim_addon_mw_utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git

@@ -33,6 +33,7 @@ au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
+au BufRead,BufNewFile Bowerfile set ft=ruby
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
@@ -89,7 +90,8 @@ nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 let g:syntastic_mode_map = { 'mode': 'passive',
                             \ 'active_filetypes': ['ruby', 'php', 'javascript'],
                             \ 'passive_filetypes': ['html', 'haml', 'erb'] }
-map <C-S> :SyntasticToggleMode<CR>
+" Ctrl-S pauses many terms
+" map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
 set shell=/bin/zsh

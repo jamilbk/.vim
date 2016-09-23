@@ -34,6 +34,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
+au BufRead,BufNewFile *.yml* set ft=yaml
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
@@ -58,7 +59,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
 " copy yanks to clipboard
-set clipboard+=unnamed
+set clipboard=unnamedplus
 
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
@@ -156,6 +157,14 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
+autocmd BufWrite *.haml :call DeleteTrailingWS()
+autocmd BufWrite *.erb :call DeleteTrailingWS()
+autocmd BufWrite *.html :call DeleteTrailingWS()
+autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
+autocmd BufWrite *.hbs :call DeleteTrailingWS()
+autocmd BufWrite *.yml :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

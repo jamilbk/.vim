@@ -34,6 +34,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
+au BufRead,BufNewFile docker-compose.yml.* set ft=yaml
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
@@ -58,7 +59,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
 " copy yanks to clipboard
-set clipboard+=unnamed
+set clipboard=unnamedplus
 
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
@@ -103,7 +104,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js
 " let NERDTreeIgnore=['node_modules']
 
 " Files over 1 MB are considered large files
-let g:LargeFile=1
+let g:LargeFile=100
 
 " Disable syntax on files over 10000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif

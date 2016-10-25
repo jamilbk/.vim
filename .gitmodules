@@ -118,3 +118,6 @@
 [submodule "bundle/vim-golang"]
 	path = bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "bundle/elm.vim"]
+	path = bundle/elm.vim
+	url = git@github.com:lambdatoast/elm.vim.git

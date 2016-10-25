@@ -103,7 +103,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js
 " uncomment to hide the directories from NERDTree
 " let NERDTreeIgnore=['node_modules']
 
-" Files over 1 MB are considered large files
+" Files over 100 MB are considered large files
 let g:LargeFile=100
 
 " Disable syntax on files over 10000 lines

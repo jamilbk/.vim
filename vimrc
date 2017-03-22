@@ -1,6 +1,9 @@
 " better plugin management
 call pathogen#infect()
 
+" allow external .vimrc's
+set exrc
+
 set tabpagemax=50
 set sidescroll=1
 set sidescrolloff=10
@@ -25,6 +28,7 @@ syntax enable
 autocmd FileType html set formatoptions+=t1
 autocmd FileType markdown set tw=79
 autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd! BufRead,BufNewFile * Neomake
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -45,6 +49,10 @@ nmap <C-T> :TagbarToggle<CR>
 " Visual Bell instead of Audio Bell
 set vb
 
+" helpful quickfix navigation
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
+
 " Tidy XML when opened
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
@@ -58,8 +66,16 @@ set foldlevel=99 " files open with no folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
-" copy yanks to clipboard
-set clipboard=unnamedplus
+" copy yanks to clipboard, only if not in tmux on mac
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    set clipboard=unnamed
+  elseif s:uname == "Linux\n"
+    " Linux
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
@@ -88,14 +104,17 @@ nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
 " Syntastic Syntax Options
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-                            \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+" let g:syntastic_mode_map = { 'mode': 'passive',
+"                             \ 'active_filetypes': ['ruby', 'php', 'javascript'],
+"                             \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " Ctrl-S pauses many terms
 " map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
 set shell=/bin/zsh
+
+let mapleader=" "
 
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
@@ -113,7 +132,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-source /home/jamil/.vim/colorscheme
+source /Users/jaboukhe/.vim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

@@ -103,6 +103,8 @@ endfunction
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
+" Syntastic has been removed in favor of Neomake
+"
 " Syntastic Syntax Options
 " let g:syntastic_mode_map = { 'mode': 'passive',
 "                             \ 'active_filetypes': ['ruby', 'php', 'javascript'],
@@ -125,14 +127,14 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js
 " Files over 100 MB are considered large files
 let g:LargeFile=100
 
-" Disable syntax on files over 10000 lines
+" Disable syntax on files over 5000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
 " Import chosen colorschemes
-source /Users/jaboukhe/.vim/colorscheme
+source ./colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

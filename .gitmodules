@@ -91,9 +91,6 @@
 [submodule "bundle/jslint"]
 	path = bundle/jslint
 	url = https://github.com/hallettj/jslint.vim.git
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/you-complete-me"]
 	path = bundle/you-complete-me
 	url = https://github.com/Valloric/YouCompleteMe.git
@@ -121,3 +118,12 @@
 [submodule "bundle/elm.vim"]
 	path = bundle/elm.vim
 	url = git@github.com:lambdatoast/elm.vim.git
+[submodule "bundle/vim-rubocop"]
+	path = bundle/vim-rubocop
+	url = git@github.com:ngmy/vim-rubocop.git
+[submodule "bundle/vim-elixir"]
+	path = bundle/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "bundle/neomake"]
+	path = bundle/neomake
+	url = https://github.com/neomake/neomake.git

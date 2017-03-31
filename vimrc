@@ -1,6 +1,9 @@
 " better plugin management
 call pathogen#infect()
 
+" allow external .vimrc's
+set exrc
+
 set tabpagemax=50
 set sidescroll=1
 set sidescrolloff=10
@@ -25,6 +28,7 @@ syntax enable
 autocmd FileType html set formatoptions+=t1
 autocmd FileType markdown set tw=79
 autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd! BufRead,BufNewFile * Neomake
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -34,7 +38,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
-au BufRead,BufNewFile docker-compose.yml.* set ft=yaml
+au BufRead,BufNewFile *.yml* set ft=yaml
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
@@ -44,6 +48,10 @@ nnoremap gp `[v`]
 nmap <C-T> :TagbarToggle<CR>
 " Visual Bell instead of Audio Bell
 set vb
+
+" helpful quickfix navigation
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 " Tidy XML when opened
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
@@ -58,8 +66,16 @@ set foldlevel=99 " files open with no folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
-" copy yanks to clipboard
-set clipboard=unnamedplus
+" copy yanks to clipboard, only if not in tmux on mac
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    set clipboard=unnamed
+  elseif s:uname == "Linux\n"
+    " Linux
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
@@ -87,15 +103,20 @@ endfunction
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
+" Syntastic has been removed in favor of Neomake
+"
 " Syntastic Syntax Options
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-                            \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+" let g:syntastic_mode_map = { 'mode': 'passive',
+"                             \ 'active_filetypes': ['ruby', 'php', 'javascript'],
+"                             \ 'passive_filetypes': ['html', 'haml', 'erb'] }
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " Ctrl-S pauses many terms
 " map <C-S> :SyntasticToggleMode<CR>
 
 " load different shell
 set shell=/bin/zsh
+
+let mapleader=" "
 
 " ignores
 set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
@@ -106,14 +127,14 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js
 " Files over 100 MB are considered large files
 let g:LargeFile=100
 
-" Disable syntax on files over 10000 lines
+" Disable syntax on files over 5000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
 " Import chosen colorschemes
-source /home/jamil/.vim/colorscheme
+source ./colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile
@@ -157,6 +178,14 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
+autocmd BufWrite *.haml :call DeleteTrailingWS()
+autocmd BufWrite *.erb :call DeleteTrailingWS()
+autocmd BufWrite *.html :call DeleteTrailingWS()
+autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
+autocmd BufWrite *.hbs :call DeleteTrailingWS()
+autocmd BufWrite *.yml :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

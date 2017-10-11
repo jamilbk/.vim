@@ -4,6 +4,7 @@ call pathogen#infect()
 " allow external .vimrc's
 set exrc
 
+set nohls
 set tabpagemax=50
 set sidescroll=1
 set sidescrolloff=10
@@ -28,7 +29,7 @@ syntax enable
 autocmd FileType html set formatoptions+=t1
 autocmd FileType markdown set tw=79
 autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd! BufRead,BufNewFile * Neomake
+autocmd! BufRead,BufNewFile,BufWritePost * Neomake
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -77,27 +78,38 @@ if has("unix")
   endif
 endif
 
+
+
+
+
+
+
+
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
 
 " Swap windows more easily
 function! MarkWindowSwap()
-    let g:markedWinNum = winnr()
+  let g:markedWinNum = winnr()
 endfunction
 
 function! DoWindowSwap()
-    "Mark destination
-    let curNum = winnr()
-    let curBuf = bufnr( "%" )
-    exe g:markedWinNum . "wincmd w"
-    "Switch to source and shuffle dest->source
-    let markedBuf = bufnr( "%" )
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' curBuf
-    "Switch to dest and shuffle source->dest
-    exe curNum . "wincmd w"
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' markedBuf 
+  "Mark destination
+  let curNum = winnr()
+  let curBuf = bufnr( "%" )
+  exe g:markedWinNum . "wincmd w"
+
+  "Switch to source and shuffle dest->source
+  let markedBuf = bufnr( "%" )
+
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' curBuf
+
+  "Switch to dest and shuffle source->dest
+  exe curNum . "wincmd w"
+
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' markedBuf 
 endfunction
 
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
@@ -134,7 +146,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-source ./colorscheme
+source ${HOME}/.config/nvim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

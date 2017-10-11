@@ -130,3 +130,6 @@
 [submodule "bundle/vim-unimpaired"]
   path = bundle/vim-unimpaired
   url = git@github.com:tpope/vim-unimpaired.git
+[submodule "bundle/vim-vue"]
+	path = bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git

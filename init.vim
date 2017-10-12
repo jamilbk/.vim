@@ -4,6 +4,7 @@ call pathogen#infect()
 " allow external .vimrc's
 set exrc
 
+set nohlsearch
 set tabpagemax=50
 set sidescroll=1
 set sidescrolloff=10

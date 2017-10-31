@@ -29,7 +29,6 @@ syntax enable
 autocmd FileType html set formatoptions+=t1
 autocmd FileType markdown set tw=79
 autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd! BufRead,BufNewFile,BufWritePost * Neomake
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -139,7 +138,8 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-runtime colorscheme
+" runtime colorscheme
+source ${HOME}/.vim/colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

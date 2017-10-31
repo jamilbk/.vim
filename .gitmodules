@@ -136,3 +136,6 @@
 [submodule "/Users/jaboukhe/.vim/pack/git-plugins/start/ale"]
 	path = /Users/jaboukhe/.vim/pack/git-plugins/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "bundle/vim-wakatime"]
+	path = bundle/vim-wakatime
+	url = git://github.com/wakatime/vim-wakatime.git

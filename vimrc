@@ -78,13 +78,6 @@ if has("unix")
   endif
 endif
 
-
-
-
-
-
-
-
 " NERDTree shortcut
 map <C-N> :NERDTreeToggle<CR>
 
@@ -146,7 +139,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 set lazyredraw
 
 " Import chosen colorschemes
-source ${HOME}/.config/nvim/colorscheme
+runtime colorscheme
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set noswapfile

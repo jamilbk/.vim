@@ -29,7 +29,7 @@ syntax enable
 autocmd FileType html set formatoptions+=t1
 autocmd FileType markdown set tw=79
 autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd! BufRead,BufNewFile * Neomake
+autocmd! BufRead,BufNewFile,BufWritePost * Neomake
 set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml

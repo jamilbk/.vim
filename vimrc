@@ -42,6 +42,8 @@ au BufRead,BufNewFile *.yml* set ft=yaml
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
+" Fix Ctrl-P hangs with VIM-ALE
+autocmd BufEnter ControlP let b:ale_enabled = 0
 
 " For easy select of recently pasted text
 nnoremap gp `[v`]

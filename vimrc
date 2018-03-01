@@ -193,6 +193,7 @@ autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
 autocmd BufWrite *.hbs :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.vue :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

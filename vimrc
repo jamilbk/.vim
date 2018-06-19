@@ -43,7 +43,6 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
-<<<<<<< HEAD
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 

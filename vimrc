@@ -43,6 +43,7 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
+<<<<<<< HEAD
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 
@@ -51,6 +52,26 @@ let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+" Fix Ctrl-P hangs with VIM-ALE
+autocmd BufEnter ControlP let b:ale_enabled = 0
+
+" Speed up grep and Ctrl-P
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep
+
+  " Optionally use rg for listing files
+  let g:ctrlp_user_command = 'rg %s -l --files -g ""'
+  
+  let g:ctrlp_use_caching = 0
+end
+
+" Automatically open the quickfix after :make, :grep, and :lvimgrep
+augroup myvimrc
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* cwindow
+  autocmd QuickFixCmdPost l* lwindow
+augroup END
 
 " For easy select of recently pasted text
 nnoremap gp `[v`]
@@ -190,6 +211,7 @@ autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
 autocmd BufWrite *.hbs :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.vue :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

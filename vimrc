@@ -39,9 +39,18 @@ au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
 au BufRead,BufNewFile *.yml* set ft=yaml
+au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
+" Fix Ctrl-P hangs with VIM-ALE
+autocmd BufEnter ControlP let b:ale_enabled = 0
+
+" Disable lint as you type
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
 " For easy select of recently pasted text
 nnoremap gp `[v`]
@@ -107,24 +116,14 @@ endfunction
 nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
-" Syntastic has been removed in favor of Neomake
-"
-" Syntastic Syntax Options
-" let g:syntastic_mode_map = { 'mode': 'passive',
-"                             \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-"                             \ 'passive_filetypes': ['html', 'haml', 'erb'] }
-" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-" Ctrl-S pauses many terms
-" map <C-S> :SyntasticToggleMode<CR>
-
 " load different shell
 set shell=/bin/zsh
 
 let mapleader=" "
 
 " ignores
-set wildignore+=*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js\/vendor|_site|components|builtAssets|node_modules)$'
+set wildignore+=/vendor/*,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
 " let NERDTreeIgnore=['node_modules']
 

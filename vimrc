@@ -43,14 +43,12 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
-" Fix Ctrl-P hangs with VIM-ALE
-autocmd BufEnter ControlP let b:ale_enabled = 0
-
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 
@@ -142,8 +140,8 @@ set shell=/bin/zsh
 let mapleader=" "
 
 " ignores
-set wildignore+=/vendor/*,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+set wildignore+=/vendor/*,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
 " let NERDTreeIgnore=['node_modules']
 
@@ -155,6 +153,7 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
+set ttyfast
 
 " Import chosen colorschemes
 " runtime colorscheme

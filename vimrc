@@ -43,6 +43,10 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
+" Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
+let g:matchparen_timeout = 2
+let g:matchparen_insert_timeout = 2
+
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too

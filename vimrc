@@ -49,6 +49,10 @@ let g:matchparen_insert_timeout = 2
 
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
+
+" Disable syntax highlighting for errors
+let g:ale_set_highlights = 0
+
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
@@ -281,7 +285,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=57 ctermfg=229 guibg=#000050
+highlight OverLength ctermbg=16 ctermfg=229 guibg=#ffffff
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

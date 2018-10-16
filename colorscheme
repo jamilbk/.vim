@@ -1,7 +1,7 @@
 " dark colorschemes
-colorscheme distinguished
-set background=dark
+" colorscheme distinguished
+" set background=dark
 
 " light colorschemes
-" set background=light
-" colorscheme pyte
+set background=light
+colorscheme pyte

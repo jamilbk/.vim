@@ -33,6 +33,7 @@ set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
+au BufRead,BufNewFile Jenkinsfile setf groovy
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab

@@ -33,6 +33,7 @@ set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
+au BufRead,BufNewFile Jenkinsfile setf groovy
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
@@ -43,8 +44,16 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
+" Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
+let g:matchparen_timeout = 2
+let g:matchparen_insert_timeout = 2
+
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
+
+" Disable syntax highlighting for errors
+let g:ale_set_highlights = 0
+
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 1
@@ -277,7 +286,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=57 ctermfg=229 guibg=#000050
+highlight OverLength ctermbg=16 ctermfg=229 guibg=#ffffff
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

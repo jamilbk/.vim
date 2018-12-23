@@ -286,7 +286,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=16 ctermfg=229 guibg=#ffffff
+highlight OverLength ctermbg=16 ctermfg=124 guibg=#333333
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

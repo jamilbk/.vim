@@ -136,3 +136,6 @@
 [submodule "bundle/vim-wakatime"]
 	path = bundle/vim-wakatime
 	url = git://github.com/wakatime/vim-wakatime.git
+[submodule "bundle/groovyindex-unix"]
+	path = bundle/groovyindex-unix
+	url = https://github.com/vim-scripts/groovyindent-unix.git

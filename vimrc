@@ -33,7 +33,7 @@ set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
-au BufRead,BufNewFile Jenkinsfile setf groovy
+au BufRead,BufNewFile Jenkinsfile set ft=groovy tabstop=4 shiftwidth=4
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
@@ -45,8 +45,8 @@ au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) 
 
 " Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
-let g:matchparen_timeout = 2
-let g:matchparen_insert_timeout = 2
+let g:matchparen_timeout = 20
+let g:matchparen_insert_timeout = 20
 
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
@@ -68,7 +68,7 @@ if executable('rg')
 
   " Optionally use rg for listing files
   let g:ctrlp_user_command = 'rg %s -l --files -g ""'
-  
+
   let g:ctrlp_use_caching = 0
 end
 
@@ -225,9 +225,9 @@ autocmd BufWrite *.vue :call DeleteTrailingWS()
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
 
 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " => Helper functions
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -286,7 +286,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=16 ctermfg=229 guibg=#ffffff
+highlight OverLength ctermbg=16 ctermfg=229 guibg=#333333
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

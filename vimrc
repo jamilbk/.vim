@@ -56,7 +56,7 @@ let g:ale_set_highlights = 0
 
 " You can disable this option too
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
@@ -286,7 +286,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=16 ctermfg=229 guibg=#333333
+highlight OverLength ctermbg=16 ctermfg=124 guibg=#333333
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

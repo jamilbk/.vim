@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/groovyindent-unix'
-Plug 'nono/vim-handlebars'
 Plug 'digitaltoad/vim-jade'
 Plug 'briancollins/vim-jst'
 Plug 'vim-scripts/L9'
@@ -35,6 +34,10 @@ Plug 'posva/vim-vue'
 Plug 'wakatime/vim-wakatime'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'w0rp/ale'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'elmcast/elm-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " allow external .vimrc's

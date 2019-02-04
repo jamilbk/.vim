@@ -1,4 +1,5 @@
 .DS_Store
+/plugged
 view/
 doc/tags
 .netrwhist

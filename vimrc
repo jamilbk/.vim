@@ -1,8 +1,51 @@
-" better plugin management
-call pathogen#infect()
+" who doesn't love plugins
+call plug#begin('~/.vim/plugged')
+Plug 'flazz/vim-colorschemes'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/groovyindent-unix'
+Plug 'digitaltoad/vim-jade'
+Plug 'briancollins/vim-jst'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/LargeFile'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/tlib'
+Plug 'tpope/vim-bundler'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-commentary'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-fugitive'
+Plug 'jnwhiteh/vim-golang'
+Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'groenewege/vim-less'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'ngmy/vim-rubocop'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-surround'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-unimpaired'
+Plug 'posva/vim-vue'
+Plug 'wakatime/vim-wakatime'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'w0rp/ale'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'elmcast/elm-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
 
 " allow external .vimrc's
 set exrc
+
+" Decrease async updates from 4,000ms (default) to 100ms. Helps with things
+" like GitGutter
+set updatetime=100
 
 set nohls
 set tabpagemax=50
@@ -286,7 +329,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=16 ctermfg=124 guibg=#333333
+highlight OverLength ctermfg=124 guibg=#ffffff
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

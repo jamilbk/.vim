@@ -27,7 +27,7 @@ Plug 'tpope/vim-rake'
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-rvm'
 Plug 'tpope/vim-surround'
-Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'vim-ruby/vim-ruby'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-unimpaired'
 Plug 'posva/vim-vue'
@@ -39,6 +39,9 @@ Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
+
+" A nifty included plugin in Vim 8
+packadd! matchit
 
 " allow external .vimrc's
 set exrc

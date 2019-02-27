@@ -247,7 +247,6 @@ set laststatus=2
 " " Format the status line
 set statusline=%{winnr()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-
 " " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -264,7 +263,11 @@ autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
 autocmd BufWrite *.hbs :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.yaml :call DeleteTrailingWS()
 autocmd BufWrite *.vue :call DeleteTrailingWS()
+autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.ex :call DeleteTrailingWS()
+autocmd BufWrite *.exs :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

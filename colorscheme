@@ -1,7 +1,21 @@
-" dark colorschemes
-" colorscheme distinguished
-" set background=dark
+" automatically set light / dark coloscheme depending on time of day
+if strftime('%H') >= 7 && strftime('%H') < 19
+  set background=light
+  colorscheme cosmic_latte
+  let g:airline_theme='cosmic_latte_light'
 
-" light colorschemes
-set background=light
-colorscheme pyte
+  " colorscheme macvim-light
+
+  " The best light colorscheme, gui vim only :-(
+  " colorscheme pyte
+else
+  set background=dark
+  colorscheme cosmic_latte
+  let g:airline_theme='cosmic_latte_dark'
+  " dark colorschemes
+  " colorscheme distinguished
+endif
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors

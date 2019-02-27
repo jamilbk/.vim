@@ -1,5 +1,7 @@
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'thoughtbot/vim-rspec'
+Plug 'nightsense/cosmic_latte'
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/groovyindent-unix'
@@ -38,7 +40,14 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " A nifty included plugin in Vim 8
 packadd! matchit
@@ -48,7 +57,7 @@ set exrc
 
 " Decrease async updates from 4,000ms (default) to 100ms. Helps with things
 " like GitGutter
-set updatetime=100
+" set updatetime=100
 
 set nohls
 set tabpagemax=50
@@ -85,6 +94,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
+au BufRead,BufNewFile colorscheme set ft=vim
 au BufRead,BufNewFile *.yml* set ft=yaml
 au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79

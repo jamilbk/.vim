@@ -55,8 +55,11 @@ packadd! matchit
 " allow external .vimrc's
 set exrc
 
+" Don't syntax highlight more than 80 columns
+set synmaxcol=80
+
 " Decrease async updates from 4,000ms (default) to 100ms. Helps with things
-" like GitGutter
+" like GitGutter but causes input lag
 " set updatetime=100
 
 set nohls
@@ -345,7 +348,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermfg=124 guibg=#ffffff
+highlight OverLength ctermfg=124 guifg=#ff0000
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

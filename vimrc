@@ -205,10 +205,10 @@ set shell=/bin/zsh
 let mapleader=" "
 
 " ignores
-set wildignore+=/vendor/*,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+set wildignore+=/vendor/*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|_build|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
-" let NERDTreeIgnore=['node_modules']
+let NERDTreeIgnore=['node_modules', '_build']
 
 " Files over 100 MB are considered large files
 let g:LargeFile=100

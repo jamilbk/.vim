@@ -1,3 +1,10 @@
+" Enable gui stuff for cterm vim (use only inside 24-bit color terms)
+set termguicolors
+
+" Sometimes these two lines are also needed for termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
 Plug 'thoughtbot/vim-rspec'

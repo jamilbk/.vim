@@ -227,10 +227,9 @@ let g:LargeFile=100
 " Disable syntax on files over 5000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
-" Don't redraw while executing macros (good performance config)
+" Performance
 set lazyredraw
 set ttyfast
-
 set regexpengine=1
 
 " Import chosen colorschemes

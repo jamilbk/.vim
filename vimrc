@@ -48,6 +48,7 @@ Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 " RSpec.vim mappings
@@ -229,6 +230,8 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 set ttyfast
+
+set regexpengine=1
 
 " Import chosen colorschemes
 " runtime colorscheme

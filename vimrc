@@ -50,6 +50,7 @@ Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 " RSpec.vim mappings
@@ -237,9 +238,10 @@ let g:LargeFile=100
 " Disable syntax on files over 5000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
-" Don't redraw while executing macros (good performance config)
+" Performance
 set lazyredraw
 set ttyfast
+set regexpengine=1
 
 " Faster for most syntax highlighting libraries
 set regexpengine=1

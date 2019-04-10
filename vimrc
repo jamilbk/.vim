@@ -1,8 +1,76 @@
-" better plugin management
-call pathogen#infect()
+" Enable gui stuff for cterm vim (use only inside 24-bit color terms)
+set termguicolors
+
+" Sometimes these two lines are also needed for termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" who doesn't love plugins
+call plug#begin('~/.vim/plugged')
+Plug 'jparise/vim-graphql'
+Plug 'thoughtbot/vim-rspec'
+Plug 'nightsense/cosmic_latte'
+Plug 'flazz/vim-colorschemes'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/groovyindent-unix'
+Plug 'digitaltoad/vim-jade'
+Plug 'briancollins/vim-jst'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/LargeFile'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/tlib'
+Plug 'tpope/vim-bundler'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-commentary'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'jnwhiteh/vim-golang'
+Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'groenewege/vim-less'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'ngmy/vim-rubocop'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-unimpaired'
+Plug 'posva/vim-vue'
+Plug 'wakatime/vim-wakatime'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'w0rp/ale'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'elmcast/elm-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" A nifty included plugin in Vim 8
+packadd! matchit
 
 " allow external .vimrc's
 set exrc
+
+" Don't syntax highlight more than 80 columns
+set synmaxcol=80
+
+" Decrease async updates from 4,000ms (default) to 100ms. Helps with things
+" like GitGutter but causes input lag
+" set updatetime=100
 
 set nohls
 set tabpagemax=50
@@ -39,6 +107,7 @@ au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Bowerfile set ft=ruby
+au BufRead,BufNewFile colorscheme set ft=vim
 au BufRead,BufNewFile *.yml* set ft=yaml
 au BufRead,BufNewFile *.go set noexpandtab
 " au BufRead,BufNewFile (*.markdown,*.md) set tw=79
@@ -47,6 +116,14 @@ au BufRead,BufNewFile *.go set noexpandtab
 " Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20
+
+" Enable prettier integration
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'graphql': ['prettier'],
+      \ 'css': ['prettier']
+      \}
 
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
@@ -57,6 +134,7 @@ let g:ale_set_highlights = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 1
+let g:ale_fix_on_enter = 1
 
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
@@ -149,10 +227,10 @@ set shell=/bin/zsh
 let mapleader=" "
 
 " ignores
-set wildignore+=/vendor/*,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+set wildignore+=/vendor/*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|_build|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
-" let NERDTreeIgnore=['node_modules']
+let NERDTreeIgnore=['node_modules', '_build']
 
 " Files over 100 MB are considered large files
 let g:LargeFile=100
@@ -160,9 +238,13 @@ let g:LargeFile=100
 " Disable syntax on files over 5000 lines
 au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 
-" Don't redraw while executing macros (good performance config)
+" Performance
 set lazyredraw
 set ttyfast
+set regexpengine=1
+
+" Faster for most syntax highlighting libraries
+set regexpengine=1
 
 " Import chosen colorschemes
 " runtime colorscheme
@@ -201,7 +283,6 @@ set laststatus=2
 " " Format the status line
 set statusline=%{winnr()}\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-
 " " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -218,7 +299,11 @@ autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.hamlbars :call DeleteTrailingWS()
 autocmd BufWrite *.hbs :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.yaml :call DeleteTrailingWS()
 autocmd BufWrite *.vue :call DeleteTrailingWS()
+autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.ex :call DeleteTrailingWS()
+autocmd BufWrite *.exs :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text
@@ -286,7 +371,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermfg=196 guifg=#ff0000
+highlight OverLength ctermfg=124 guifg=#ff0000
 match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

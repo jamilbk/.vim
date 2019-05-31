@@ -8,6 +8,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
 Plug 'towolf/vim-helm'
+Plug 'jparise/vim-graphql'
 Plug 'thoughtbot/vim-rspec'
 Plug 'nightsense/cosmic_latte'
 Plug 'flazz/vim-colorschemes'
@@ -27,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
 Plug 'jnwhiteh/vim-golang'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
@@ -117,6 +119,14 @@ au BufRead,BufNewFile *.go set noexpandtab
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20
 
+" Enable prettier integration
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'graphql': ['prettier'],
+      \ 'css': ['prettier']
+      \}
+
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
 
@@ -126,6 +136,7 @@ let g:ale_set_highlights = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 1
+let g:ale_fix_on_enter = 1
 
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
@@ -232,6 +243,9 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 " Performance
 set lazyredraw
 set ttyfast
+set regexpengine=1
+
+" Faster for most syntax highlighting libraries
 set regexpengine=1
 
 " Import chosen colorschemes

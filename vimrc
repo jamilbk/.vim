@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'towolf/vim-helm'
 Plug 'thoughtbot/vim-rspec'
 Plug 'nightsense/cosmic_latte'
 Plug 'flazz/vim-colorschemes'
@@ -99,6 +100,7 @@ set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
+au BufRead,BufNewFile *Dockerfile* set ft=dockerfile
 au BufRead,BufNewFile Jenkinsfile set ft=groovy tabstop=4 shiftwidth=4
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
@@ -290,6 +292,8 @@ autocmd BufWrite *.vue :call DeleteTrailingWS()
 autocmd BufWrite *.sh :call DeleteTrailingWS()
 autocmd BufWrite *.ex :call DeleteTrailingWS()
 autocmd BufWrite *.exs :call DeleteTrailingWS()
+autocmd BufWrite *.md :call DeleteTrailingWS()
+autocmd BufWrite *.gql :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text

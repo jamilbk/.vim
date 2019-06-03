@@ -7,7 +7,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
-Plug 'towolf/vim-helm'
 Plug 'jparise/vim-graphql'
 Plug 'thoughtbot/vim-rspec'
 Plug 'nightsense/cosmic_latte'

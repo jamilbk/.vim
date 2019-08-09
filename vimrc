@@ -372,6 +372,12 @@ endfunction
 
 " gutter highlighting
 highlight OverLength ctermfg=124 guifg=#ff0000
-match OverLength /\%81v.\+/
+" match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/
+
+" Elixir files can be 98 chars long
+autocmd BufWritePost *.ex match OverLength /\%99v.\+/
+autocmd BufWinEnter *.ex match OverLength /\%99v.\+/
+autocmd BufWritePost *.exs match OverLength /\%99v.\+/
+autocmd BufWinEnter *.exs match OverLength /\%99v.\+/

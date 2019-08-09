@@ -1,4 +1,3 @@
-" automatically set light / dark coloscheme depending on time of day
 if strftime('%H') >= 8 && strftime('%H') < 19
   set background=light
   colorscheme cosmic_latte

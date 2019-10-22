@@ -101,6 +101,7 @@ set smartcase
 set incsearch
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile Capfile set ft=ruby
+au BufRead,BufNewFile *Dockerfile* set ft=dockerfile
 au BufRead,BufNewFile Jenkinsfile set ft=groovy tabstop=4 shiftwidth=4
 au BufRead,BufNewFile Rakefile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
@@ -304,6 +305,8 @@ autocmd BufWrite *.vue :call DeleteTrailingWS()
 autocmd BufWrite *.sh :call DeleteTrailingWS()
 autocmd BufWrite *.ex :call DeleteTrailingWS()
 autocmd BufWrite *.exs :call DeleteTrailingWS()
+autocmd BufWrite *.md :call DeleteTrailingWS()
+autocmd BufWrite *.gql :call DeleteTrailingWS()
 
 
 " " When you press gv you vimgrep after the selected text
@@ -372,6 +375,12 @@ endfunction
 
 " gutter highlighting
 highlight OverLength ctermbg=188 guibg=#d7d7d7
-match OverLength /\%81v.\+/
+" match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/
+
+" Elixir files can be 98 chars long
+autocmd BufWritePost *.ex match OverLength /\%99v.\+/
+autocmd BufWinEnter *.ex match OverLength /\%99v.\+/
+autocmd BufWritePost *.exs match OverLength /\%99v.\+/
+autocmd BufWinEnter *.exs match OverLength /\%99v.\+/

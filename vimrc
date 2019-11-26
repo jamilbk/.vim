@@ -32,7 +32,6 @@ Plug 'jnwhiteh/vim-golang'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
 Plug 'groenewege/vim-less'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'ngmy/vim-rubocop'
@@ -50,6 +49,8 @@ Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -66,7 +67,7 @@ packadd! matchit
 set exrc
 
 " Don't syntax highlight more than 80 columns
-set synmaxcol=80
+set synmaxcol=500
 
 " Decrease async updates from 4,000ms (default) to 100ms. Helps with things
 " like GitGutter but causes input lag
@@ -228,8 +229,8 @@ set shell=/bin/zsh
 let mapleader=" "
 
 " ignores
-set wildignore+=/vendor/*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|_build|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+set wildignore+=/swagger-ui/*,/vendor/*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
 let NERDTreeIgnore=['node_modules', '_build']
 
@@ -242,7 +243,6 @@ au BufRead,BufNewFile * if line("$") > 5000|set syntax=|endif
 " Performance
 set lazyredraw
 set ttyfast
-set regexpengine=1
 
 " Faster for most syntax highlighting libraries
 set regexpengine=1
@@ -293,6 +293,7 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.json :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 autocmd BufWrite *.haml :call DeleteTrailingWS()
 autocmd BufWrite *.erb :call DeleteTrailingWS()

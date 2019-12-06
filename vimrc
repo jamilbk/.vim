@@ -245,7 +245,7 @@ set lazyredraw
 set ttyfast
 
 " Faster for most syntax highlighting libraries
-set regexpengine=1
+" set regexpengine=1
 
 " Import chosen colorschemes
 " runtime colorscheme

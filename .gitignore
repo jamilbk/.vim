@@ -4,3 +4,4 @@ view/
 doc/tags
 .netrwhist
 autoload/plug.vim
+autoload/plug.vim.old

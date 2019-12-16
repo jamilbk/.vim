@@ -385,3 +385,5 @@ autocmd BufWritePost *.ex match OverLength /\%99v.\+/
 autocmd BufWinEnter *.ex match OverLength /\%99v.\+/
 autocmd BufWritePost *.exs match OverLength /\%99v.\+/
 autocmd BufWinEnter *.exs match OverLength /\%99v.\+/
+autocmd BufWritePost *.eex match OverLength /\%99v.\+/
+autocmd BufWinEnter *.eex match OverLength /\%99v.\+/

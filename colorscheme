@@ -10,4 +10,4 @@ endif
 
 " colorschemes typically don't enable italics in cterms and termguicolors
 " doesn't fool them enough to do so either. So enable manually.
-highlight Comment cterm=italic
+highlight Comment cterm=italic gui=italic

@@ -111,8 +111,6 @@ au BufRead,BufNewFile Bowerfile set ft=ruby
 au BufRead,BufNewFile colorscheme set ft=vim
 au BufRead,BufNewFile *.yml* set ft=yaml
 au BufRead,BufNewFile *.go set noexpandtab
-" au BufRead,BufNewFile (*.markdown,*.md) set tw=79
-" au BufRead,BufNewFile (*.markdown,*.md) 
 
 " Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
 let g:matchparen_timeout = 20

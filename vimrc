@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'thoughtbot/vim-rspec'
 Plug 'nightsense/cosmic_latte'
@@ -226,10 +227,10 @@ set shell=/bin/zsh
 let mapleader=" "
 
 " ignores
-set wildignore+=/swagger-ui/*,/vendor/*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+set wildignore+=/swagger-ui/*,/vendor/*,/*tfstate*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|*tfstate*|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
-let NERDTreeIgnore=['node_modules', '_build']
+let NERDTreeIgnore=['\.tfstate$', '\.backup$', 'node_modules', '_build']
 
 " Files over 100 MB are considered large files
 let g:LargeFile=100

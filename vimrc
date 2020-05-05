@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
@@ -374,7 +375,14 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=188 guibg=#dddddd
+" dark mode enabled?
+"
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  highlight OverLength ctermbg=188 guibg=#313131
+else
+  highlight OverLength ctermbg=188 guibg=#e1e1e1
+endif
+
 " match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

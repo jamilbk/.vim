@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'jremmen/vim-ripgrep'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
@@ -143,12 +144,8 @@ autocmd BufEnter ControlP let b:ale_enabled = 0
 
 " Speed up grep and Ctrl-P
 if executable('rg')
-  " Use rg over grep
-  set grepprg=rg\ --vimgrep
-
   " Optionally use rg for listing files
   let g:ctrlp_user_command = 'rg %s -l --files -g ""'
-
   let g:ctrlp_use_caching = 0
 end
 

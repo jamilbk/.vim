@@ -8,6 +8,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
 Plug 'mfukar/robotframework-vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'thoughtbot/vim-rspec'
@@ -67,6 +70,9 @@ packadd! matchit
 " allow external .vimrc's
 set exrc
 
+" Always show gutter (prevent code jumping left to ride on lint-as-you-type)
+" set signcolumn=yes
+
 " Don't syntax highlight more than 80 columns
 set synmaxcol=500
 
@@ -120,6 +126,13 @@ let g:matchparen_insert_timeout = 20
 
 " Enable prettier integration
 let g:ale_fix_on_save = 1
+
+" Always in gutter
+let g:ale_sign_column_always = 0
+
+" Use strict mode
+let g:ale_elixir_credo_strict = 1
+
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'graphql': ['prettier'],
@@ -130,24 +143,20 @@ let g:ale_fixers = {
 let g:ale_lint_on_text_changed = 'never'
 
 " Disable syntax highlighting for errors
-let g:ale_set_highlights = 0
+let g:ale_set_highlights = 1
 
 " You can disable this option too
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 1
-let g:ale_fix_on_enter = 1
+let g:ale_lint_on_enter = 0
+let g:ale_fix_on_enter = 0
 
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 
 " Speed up grep and Ctrl-P
 if executable('rg')
-  " Use rg over grep
-  set grepprg=rg\ --vimgrep
-
   " Optionally use rg for listing files
   let g:ctrlp_user_command = 'rg %s -l --files -g ""'
-
   let g:ctrlp_use_caching = 0
 end
 
@@ -223,7 +232,7 @@ nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
 " load different shell
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 
 let mapleader=" "
 
@@ -374,7 +383,14 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 " gutter highlighting
-highlight OverLength ctermbg=188 guibg=#dddddd
+" dark mode enabled?
+"
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  highlight OverLength ctermbg=188 guibg=#313131
+else
+  highlight OverLength ctermbg=188 guibg=#e1e1e1
+endif
+
 " match OverLength /\%81v.\+/
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/

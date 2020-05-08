@@ -7,6 +7,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'mfukar/robotframework-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'thoughtbot/vim-rspec'

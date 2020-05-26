@@ -94,6 +94,8 @@ set showmode
 set history=50
 set nomodeline
 set nowrap
+set textwidth=0
+set nolist
 set shiftwidth=2
 set shiftround
 set expandtab

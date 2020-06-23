@@ -155,6 +155,9 @@ let g:ale_fix_on_enter = 0
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 
+" Disable compiled languages ALE
+autocmd FileType elixir let b:ale_enabled = 0
+
 " Speed up grep and Ctrl-P
 if executable('rg')
   " Optionally use rg for listing files

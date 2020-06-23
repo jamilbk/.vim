@@ -398,9 +398,10 @@ autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/
 
 " Elixir files can be 98 chars long
-autocmd BufWritePost *.ex match OverLength /\%99v.\+/
-autocmd BufWinEnter *.ex match OverLength /\%99v.\+/
-autocmd BufWritePost *.exs match OverLength /\%99v.\+/
-autocmd BufWinEnter *.exs match OverLength /\%99v.\+/
-autocmd BufWritePost *.eex match OverLength /\%99v.\+/
-autocmd BufWinEnter *.eex match OverLength /\%99v.\+/
+autocmd BufWritePost,BufWinEnter *.ex match OverLength /\%99v.\+/
+autocmd BufWritePost,BufWinEnter *.exs match OverLength /\%99v.\+/
+autocmd BufWritePost,BufWinEnter *.eex match OverLength /\%99v.\+/
+autocmd BufWritePost,BufWinEnter *.leex match OverLength /\%99v.\+/
+
+" Python files can be 88 chars long
+autocmd BufWritePost,BufWinEnter *.py match OverLength /\%89v.\+/

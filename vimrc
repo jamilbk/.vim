@@ -175,8 +175,12 @@ augroup END
 " For easy select of recently pasted text
 nnoremap gp `[v`]
 nmap <C-T> :TagbarToggle<CR>
+
 " Visual Bell instead of Audio Bell
 set vb
+
+" Disable Visual Bell flash
+set t_vb=
 
 " helpful quickfix navigation
 map <C-j> :cn<CR>

@@ -241,7 +241,11 @@ nmap <silent> <C-w>y :call MarkWindowSwap()<CR>
 nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
 " load different shell
-set shell=/usr/local/bin/zsh
+if has("macunix")
+  set shell=/usr/local/bin/zsh
+elseif has("unix")
+  set shell=/usr/bin/zsh
+endif
 
 let mapleader=" "
 

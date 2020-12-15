@@ -186,8 +186,8 @@ set t_vb=
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
 
-" Tidy XML when opened
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+" Tidy XML when opened -- causes problems with Git blame
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " Tidy HTML / XML on demand
 command Thtml :%!tidy -q -i --show-errors 0

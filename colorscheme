@@ -1,12 +1,17 @@
 colorscheme cosmic_latte
 
 " dark mode enabled?
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+if has("macunix")
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+    let g:airline_theme='cosmic_latte_dark'
+  else
+    set background=light
+    let g:airline_theme='cosmic_latte_light'
+  endif
+else
   set background=dark
   let g:airline_theme='cosmic_latte_dark'
-else
-  set background=light
-  let g:airline_theme='cosmic_latte_light'
 endif
 
 " colorschemes typically don't enable italics in cterms and termguicolors

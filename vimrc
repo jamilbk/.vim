@@ -405,8 +405,8 @@ endfunction
 " gutter highlighting
 " dark mode enabled?
 "
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-  highlight OverLength ctermbg=188 guibg=#313131
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark' || has('unix')
+  highlight OverLength ctermbg=188 guibg=#414141
 else
   highlight OverLength ctermbg=188 guibg=#e1e1e1
 endif

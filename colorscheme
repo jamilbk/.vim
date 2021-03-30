@@ -10,6 +10,14 @@ if has("macunix")
     let g:airline_theme='cosmic_latte_light'
   endif
 else
+  " Meh, only needed if monirot doesn't get bright enough
+  " if strftime("%H") > 8 && strftime("%H") < 17
+  "   set background=light
+  "   let g:airline_theme='cosmic_latte_light'
+  " else
+  "   set background=dark
+  "   let g:airline_theme='cosmic_latte_dark'
+  " endif
   set background=dark
   let g:airline_theme='cosmic_latte_dark'
 endif

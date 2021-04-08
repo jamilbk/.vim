@@ -50,6 +50,7 @@ Plug 'posva/vim-vue'
 Plug 'wakatime/vim-wakatime'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
@@ -143,6 +144,10 @@ let g:ale_fixers = {
       \ 'css': ['prettier']
       \}
 
+let g:ale_linters = {
+      \ 'elixir': ['credo']
+      \}
+
 " Disable lint as you type
 let g:ale_lint_on_text_changed = 'never'
 
@@ -151,14 +156,14 @@ let g:ale_set_highlights = 1
 
 " You can disable this option too
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_fix_on_enter = 0
 
 " Fix Ctrl-P hangs with VIM-ALE
 autocmd BufEnter ControlP let b:ale_enabled = 0
 
 " Disable compiled languages ALE
-autocmd FileType elixir let b:ale_enabled = 0
+" autocmd FileType elixir let b:ale_enabled = 0
 
 " Speed up grep and Ctrl-P
 if executable('rg')
@@ -400,8 +405,8 @@ endfunction
 " gutter highlighting
 " dark mode enabled?
 "
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-  highlight OverLength ctermbg=188 guibg=#313131
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark' || has('unix')
+  highlight OverLength ctermbg=188 guibg=#414141
 else
   highlight OverLength ctermbg=188 guibg=#e1e1e1
 endif

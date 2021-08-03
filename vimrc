@@ -2,8 +2,8 @@
 set termguicolors
 
 " Sometimes these two lines are also needed for termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
@@ -249,7 +249,7 @@ nmap <silent> <C-w>p :call DoWindowSwap()<CR>
 
 " load different shell
 if has("macunix")
-  set shell=/usr/local/bin/zsh
+  set shell=/bin/zsh
 elseif has("unix")
   set shell=/usr/bin/zsh
 endif
@@ -258,7 +258,7 @@ let mapleader=" "
 
 " ignores
 set wildignore+=/swagger-ui/*,/vendor/*,/*tfstate*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|*tfstate*|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|_site|\/components|builtAssets|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|*tfstate*|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|\.DS_Store|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
 let NERDTreeIgnore=['.*VBoxSVC.*\.log$', '\.tfstate$', '\.backup$', '^node_modules$', '^_build$']
 
@@ -405,7 +405,7 @@ endfunction
 " gutter highlighting
 " dark mode enabled?
 "
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark' || has('unix')
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark' || !has('macunix')
   highlight OverLength ctermbg=188 guibg=#414141
 else
   highlight OverLength ctermbg=188 guibg=#e1e1e1

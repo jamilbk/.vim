@@ -145,7 +145,8 @@ let g:ale_fixers = {
       \}
 
 let g:ale_linters = {
-      \ 'elixir': ['credo']
+      \ 'elixir': ['credo'],
+      \ 'ruby': ['rubocop']
       \}
 
 " Disable lint as you type

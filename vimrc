@@ -7,6 +7,7 @@ set termguicolors
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'mattreduce/vim-mix'
 Plug 'BeneCollyridam/futhark-vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'mfukar/robotframework-vim'

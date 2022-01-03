@@ -68,6 +68,11 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Elixir mappings
+" Run unit tests no-color (useful for macvim)
+map <C-u> :Mix test --no-color<CR>
+map <C-U> :Mix test --no-color %<CR>
+
 " A nifty included plugin in Vim 8
 packadd! matchit
 
@@ -262,7 +267,7 @@ let mapleader=" "
 set wildignore+=/swagger-ui/*,/vendor/*,/*tfstate*,/_build,*/tmp/*,/log,*.so,*.swp,*.zip,*/node_modules/*,/deps,_site/*,*/lib/public/js/vendor/*,/components/*,*/builtAssets/*,*/coverage/*
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|log|*tfstate*|_site|solr|_build|swagger-ui|deps|doc|public\/js\/vendor|\.DS_Store|_site|\/components|builtAssets|node_modules)$'
 " uncomment to hide the directories from NERDTree
-let NERDTreeIgnore=['.*VBoxSVC.*\.log$', '\.tfstate$', '\.backup$', '^node_modules$', '^_build$']
+let NERDTreeIgnore=['.*VBoxSVC.*\.log$', '^deps$', '\.tfstate$', '\.backup$', '^node_modules$', '^_build$']
 
 " Files over 100 MB are considered large files
 let g:LargeFile=100

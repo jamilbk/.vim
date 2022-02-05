@@ -114,7 +114,8 @@ filetype on
 filetype plugin indent on
 syntax enable
 autocmd FileType html set formatoptions+=t1
-autocmd FileType markdown set tw=79
+autocmd FileType markdown set wrap
+autocmd FileType * set nowrap
 autocmd FileType markdown setlocal spell spelllang=en_us
 set smartcase
 set incsearch
@@ -430,3 +431,7 @@ autocmd BufWritePost,BufWinEnter *.leex match OverLength /\%99v.\+/
 
 " Python files can be 88 chars long
 autocmd BufWritePost,BufWinEnter *.py match OverLength /\%89v.\+/
+
+" Ruby files can be 120 chars long
+autocmd BufWritePost,BufWinEnter *.rb match OverLength /\%119.\+/
+autocmd BufWritePost,BufWinEnter *.erb match OverLength /\%119.\+/

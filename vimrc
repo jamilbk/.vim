@@ -433,5 +433,5 @@ autocmd BufWritePost,BufWinEnter *.leex match OverLength /\%99v.\+/
 autocmd BufWritePost,BufWinEnter *.py match OverLength /\%89v.\+/
 
 " Ruby files can be 120 chars long
-autocmd BufWritePost,BufWinEnter *.rb match OverLength /\%119.\+/
-autocmd BufWritePost,BufWinEnter *.erb match OverLength /\%119.\+/
+autocmd BufWritePost,BufWinEnter *.rb match OverLength /\%119v.\+/
+autocmd BufWritePost,BufWinEnter *.erb match OverLength /\%119v.\+/

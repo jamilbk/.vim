@@ -7,6 +7,7 @@ set termguicolors
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mattreduce/vim-mix'
 Plug 'BeneCollyridam/futhark-vim'
 Plug 'pearofducks/ansible-vim'
@@ -423,11 +424,12 @@ endif
 autocmd BufWritePost * match OverLength /\%81v.\+/
 autocmd BufWinEnter * match OverLength /\%81v.\+/
 
-" Elixir files can be 98 chars long
+" Elixir files can be 99 chars long
 autocmd BufWritePost,BufWinEnter *.ex match OverLength /\%99v.\+/
 autocmd BufWritePost,BufWinEnter *.exs match OverLength /\%99v.\+/
 autocmd BufWritePost,BufWinEnter *.eex match OverLength /\%99v.\+/
 autocmd BufWritePost,BufWinEnter *.leex match OverLength /\%99v.\+/
+autocmd BufWritePost,BufWinEnter *.heex match OverLength /\%99v.\+/
 
 " Python files can be 88 chars long
 autocmd BufWritePost,BufWinEnter *.py match OverLength /\%89v.\+/

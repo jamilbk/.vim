@@ -133,6 +133,11 @@ au BufRead,BufNewFile colorscheme set ft=vim
 au BufRead,BufNewFile *.yml* set ft=yaml
 au BufRead,BufNewFile *.go set noexpandtab
 
+" Workaround for https://github.com/elixir-editors/vim-elixir/issues/562
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
+
 " Don't let matchparen to slow down cursor movement. Limit it to 2 ms.
 let g:matchparen_timeout = 20
 let g:matchparen_insert_timeout = 20

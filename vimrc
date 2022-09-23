@@ -13,6 +13,7 @@ Plug 'BeneCollyridam/futhark-vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'mfukar/robotframework-vim'
 Plug 'jamilbk/vim-ripgrep'
+Plug 'uarun/vim-protobuf'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
@@ -25,6 +26,7 @@ Plug 'vim-scripts/groovyindent-unix'
 Plug 'digitaltoad/vim-jade'
 Plug 'briancollins/vim-jst'
 Plug 'vim-scripts/L9'
+Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/LargeFile'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -57,9 +59,9 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'othree/html5.vim'
 Plug 'elmcast/elm-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -213,12 +215,6 @@ map <C-k> :cp<CR>
 " Tidy HTML / XML on demand
 command Thtml :%!tidy -q -i --show-errors 0
 command Txml  :%!tidy -q -i --show-errors 0 -xml
-
-" used to map Space bar as fold key
-set foldmethod=syntax
-set foldlevel=99 " files open with no folds
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
-vnoremap <Space> zf
 
 " copy yanks to clipboard, only if not in tmux on mac
 if has("unix")

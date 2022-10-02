@@ -7,6 +7,7 @@ set termguicolors
 
 " who doesn't love plugins
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mattreduce/vim-mix'
 Plug 'BeneCollyridam/futhark-vim'
@@ -71,6 +72,12 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " Elixir mappings
 " Run unit tests no-color (useful for macvim)
 map <C-u> :Mix test --no-color<CR>
@@ -92,6 +99,8 @@ set synmaxcol=500
 " like GitGutter but causes input lag
 " set updatetime=100
 
+set foldmethod=syntax
+set foldlevelstart=99
 set nohls
 set tabpagemax=50
 set sidescroll=1
